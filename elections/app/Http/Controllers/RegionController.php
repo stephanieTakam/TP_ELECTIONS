@@ -38,7 +38,11 @@ class RegionController extends Controller
     }
 
     public function insert(Request $request) {
-        //
+        request()->validate([
+            'label' => ['required'],
+        ]);
+
+        return "Nous avons enregistrer votre region qui est " . request('label') . ' .';
     }
 
     /**
