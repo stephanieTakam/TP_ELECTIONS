@@ -44,7 +44,9 @@
     <h1>Ajout de region</h1>
 
     <div>
-      <form action="region_insert">
+      <form method="POST" action="region_insert">
+        @csrf
+
         <label for="fname">Name</label>
         <input type="text" id="fname" name="firstname" require>
 
