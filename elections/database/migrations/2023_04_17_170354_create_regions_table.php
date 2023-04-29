@@ -14,8 +14,8 @@ class CreateRegionsTable extends Migration
     public function up()
     {
         Schema::create('regions', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('label');
+            $table->increments('id');
+            $table->string('label',30)->nullable()->define('Douala');
             $table->timestamps();
         });
     }

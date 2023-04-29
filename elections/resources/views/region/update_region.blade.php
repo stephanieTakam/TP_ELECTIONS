@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Region</title>
 </head>
 <style>
-    input[type=text], select {
+    input[type=text],
+    select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -38,21 +41,47 @@
         background-color: #f2f2f2;
         padding: 40px;
     }
-    </style>
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+</style>
+
 <body>
 
-    <h1>Ajout de region</h1>
+    <div>
+        @if (session()->get('success'))
+            <div>
+                {{ session()->get('success') }}
+            </div>
+        @endif
+
+        <h1>Update de la region</h1>
 
     <div>
-      <form method="POST" action="region_insert">
-        @csrf
+        <form method="get" action="region_form_update">
+            @csrf
 
-        <label for="fname">Name</label>
-        <input type="text" id="fname" name="firstname" require>
+            <label for="nom">Name</label>
+            {{-- @method('PUT') --}}
 
-        <input type="submit" value="Submit">
-      </form>
+            <input type="text" id="fname" name="nom" value={{$reg["label"]}} required>
+            <input type="hidden" name="id" value="{{ $reg -> id }}">
+            <input type="submit" value="Submit">
+        </form>
     </div>
+    </div>
+</body>
 
-    </body>
 </html>

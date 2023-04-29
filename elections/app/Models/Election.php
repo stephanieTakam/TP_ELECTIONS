@@ -10,30 +10,35 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Bulletin
- * 
+ * Class Election
+ *
  * @property int $id
- * @property string $couleur
- * @property string $photo
+ * @property Carbon $date
+ * @property string $label
+ * @property string $description
+ * @property string $statut
  * @property int $id_vote
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Vote $vote
  *
  * @package App\Models
  */
-class Bulletin extends Model
+class Election extends Model
 {
-	protected $table = 'bulletins';
+	protected $table = 'elections';
 
 	protected $casts = [
+		'date' => 'datetime',
 		'id_vote' => 'int'
 	];
 
 	protected $fillable = [
-		'couleur',
-		'photo',
+		'date',
+		'label',
+		'description',
+		'statut',
 		'id_vote'
 	];
 

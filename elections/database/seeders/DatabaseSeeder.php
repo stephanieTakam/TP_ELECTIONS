@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Participant;
+use App\Models\Region;
+use App\Models\Vote;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Region::factory(20)->create();
+        Vote::factory(20)->create();
+        Participant::factory(20)->create();
     }
 }
